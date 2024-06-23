@@ -1,0 +1,1012 @@
+// HEADER
+
+.header {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: $color-white;
+
+  @include padding(0, 1.6rem, 0, 1.6rem);
+
+  @include width-and-height(100vw, 7.2rem);
+
+  @include respond(desktop) {
+    height: 15.2rem;
+    position: relative;
+
+    @include padding(4.8rem, 4rem, 4.8rem, 4rem);
+  }
+
+  @include flex-container(row, space-between, center, nowrap);
+
+  &__logo {
+    @include width-and-height(14.2rem, 4rem);
+
+    @include respond(desktop) {
+      @include width-and-height(20rem, 5.6rem);
+    }
+  }
+
+  &__checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+
+    @include width-and-height(2.4rem, 2.4rem);
+  }
+
+  &__hamburger {
+    content: "";
+    display: block;
+    border-bottom: 1px solid #274c5b;
+    width: 2rem;
+    cursor: pointer;
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  &__checkbox:checked ~ &__hamburger--to-right {
+    transform: rotate(45deg) translateY(1.35px);
+  }
+
+  &__checkbox:checked ~ &__hamburger--disappears {
+    opacity: 0;
+  }
+
+  &__checkbox:checked ~ &__hamburger--to-left {
+    transform: rotate(-45deg) translateY(-1.35px);
+  }
+
+  &__label {
+    @include position-absolute(2.4rem, 1.6rem);
+
+    @include width-and-height(2.4rem, 2.4rem);
+
+    @include flex-container(column, space-around, center, nowrap);
+
+    @include respond(desktop) {
+      visibility: hidden;
+    }
+  }
+
+  &__sidebar {
+    position: absolute;
+    top: 7.2rem;
+    left: 0;
+    background-color: $color-white;
+    z-index: -1;
+    opacity: 0;
+    translate: 0 -100%;
+    transition: translate 0.8s ease;
+
+    @include padding(unset, unset, 3.7rem, unset);
+
+    @include width-and-height(100vw, calc(100vh - 7.2rem));
+
+    @include flex-container(column, space-between, center, nowrap);
+
+    @include respond(desktop) {
+      visibility: hidden;
+      translate: 0%;
+      opacity: 1;
+    }
+  }
+
+  &__links {
+    @include margin(4rem, unset, unset, unset);
+
+    @include width-and-height(92vw, 35.2rem);
+
+    @include flex-container(column, space-between, start, nowrap, 0.8rem);
+
+    @include header-links-styling;
+
+    @include respond(desktop) {
+      visibility: visible;
+
+      @include position-absolute(-3rem, 4rem);
+
+      @include margin(0, 0, 0, 0);
+
+      @include width-and-height(50.6rem, 6.5rem);
+
+      @include flex-container(row, space-between, center, nowrap);
+
+      @include header-links-styling;
+    }
+  }
+
+  &__label:has(input:checked) + &__sidebar {
+    translate: 0%;
+    opacity: 1;
+  }
+}
+
+// HERO
+.hero {
+  height: 53.6rem;
+  background-image: url("./images/hero-big-image.png");
+  background-size: cover;
+  background-position: 28% 100%;
+
+  @include margin(7.2rem, unset, unset, unset);
+
+  @include padding(6.4rem, unset, unset, 1.6rem);
+
+  @include respond(desktop) {
+    height: 75.2rem;
+
+    @include margin(0, 0, 0, 0);
+
+    @include padding(16rem, unset, unset, 4rem);
+  }
+
+  &__button {
+    @include margin(4rem, unset, unset, unset);
+  }
+
+  h1 {
+    width: 84vw;
+    max-width: 60rem;
+  }
+
+  button {
+    @include respond(desktop) {
+      font-size: 20px;
+
+      @include width-and-height(22.3rem, 8rem);
+    }
+  }
+}
+
+// OFFERS
+.offers {
+  @include padding(6.4rem, 0, 6.4rem, 0);
+
+  @include flex-container(row, center, center, wrap, 3.1rem);
+
+  &__container {
+    &--pink-background {
+      @include offers-card("./images/Offer-one1.png", "./images/Offer-one.png");
+    }
+
+    &--white-background {
+      @include offers-card("./images/Offer-two2.png", "./images/Offer-two.png");
+    }
+
+    @include respond(desktop) {
+      height: 38.4rem;
+
+      @include padding(11.2rem, 6.4rem, 11.2rem, 6.4rem);
+    }
+  }
+
+  h2 {
+    max-width: 26rem;
+  }
+}
+
+// ABOUT US
+.about-us {
+  @include padding(4.3rem, 1.6rem, 6.4rem, 1.6rem);
+
+  @include background-and-font-color($color-gray-1, $color-body);
+
+  @include flex-container(row, center, center, wrap);
+
+  @include respond(desktop) {
+    height: 88.8rem;
+  }
+
+  h2 {
+    @include respond(desktop) {
+      width: 55.2rem;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 92vw;
+    max-width: 66.4rem;
+  }
+
+  &__text {
+    max-width: 66.5rem;
+
+    @include padding(3.3rem, unset, unset, unset);
+
+    @include flex-container(column, space-between, start, nowrap, 3.2rem);
+
+    @include respond(desktop) {
+      height: 72.8rem;
+
+      @include padding(0, 0, 0, 0);
+    }
+  }
+
+  &__heading {
+    p {
+      color: $color-gray-5;
+
+      @include margin(1.6rem, unset, unset, unset);
+
+      @include respond(desktop) {
+        color: $color-body;
+
+        @include margin(2.4rem, unset, unset, unset);
+      }
+    }
+  }
+
+  &__group {
+    width: 92vw;
+    max-width: 54.8rem;
+
+    @include flex-container(row, center, start, nowrap);
+
+    @include respond(desktop) {
+      @include margin(unset, unset, unset, 5.6rem);
+    }
+
+    &--margin {
+      @include margin(unset, unset, 2.4rem, unset);
+    }
+  }
+
+  &__icon {
+    display: block;
+    width: 9.6rem;
+    @include margin(unset, 2rem, unset, unset);
+  }
+
+  &__description {
+    width: 63vw;
+
+    @include flex-container(column, space-between, start, nowrap);
+
+    p {
+      color: $color-gray-5;
+      @include respond(desktop) {
+        color: $color-body;
+        width: 54.8rem;
+      }
+    }
+
+    .h4--small {
+      @include font-settings(
+        $color-body,
+        2.4rem,
+        400,
+        3.2rem,
+        0.36px,
+        $font-primary
+      );
+    }
+  }
+
+  button {
+    @include respond(desktop) {
+      font-size: 20px;
+
+      @include width-and-height(20.1rem, 8rem);
+    }
+  }
+}
+
+//  PRODUCTS
+.products {
+  @include padding(6.4rem, 0, 6.4rem, 0);
+
+  @include respond(desktop) {
+    @include padding(9.6rem, 0, 9.6rem, 0);
+  }
+
+  &__heading {
+    text-align: center;
+
+    @include respond(bigger_than_desktop) {
+      @include margin(unset, unset, 4rem, unset);
+    }
+  }
+
+  &__container {
+    width: 100%;
+    max-width: 1830px;
+
+    @include margin(3.2rem, auto, unset, auto);
+
+    @include grid-container(repeat(auto-fit, 92vw), center, center, 2.4rem);
+
+    @include respond(products_max_width) {
+      @include grid-container(
+        repeat(auto-fit, 43.2rem),
+        center,
+        center,
+        2.4rem
+      );
+    }
+
+    @include respond(desktop) {
+      @include margin(4rem, auto, unset, auto);
+      gap: 3.2rem;
+    }
+  }
+
+  &__item {
+    background-color: $color-gray-1;
+    max-width: 43.2rem;
+    border-radius: 2.4rem;
+
+    @include padding(1.6rem, 1.6rem, 1.6rem, 1.6rem);
+
+    @include respond(desktop) {
+      height: 59.2rem;
+
+      @include padding(3.2rem, 3.2rem, 3.2rem, 3.2rem);
+    }
+
+    &--left {
+      @include flex-container(row, start, center, nowrap);
+
+      @include font-settings(
+        $color-gray-4,
+        1.8rem,
+        400,
+        3.2rem,
+        0.36px,
+        $font-primary
+      );
+    }
+
+    &--middle {
+      float: left;
+
+      @include margin(unset, unset, unset, 11.7rem);
+
+      @include font-settings(
+        $color-body,
+        2rem,
+        700,
+        3.2rem,
+        0.36px,
+        $font-primary
+      );
+
+      @include respond(bigger_than_phone) {
+        @include margin(unset, unset, unset, 0.8rem);
+      }
+    }
+  }
+
+  &__label {
+    height: 4rem;
+    border-radius: 0.8rem;
+    background-color: $color-body;
+    float: left;
+
+    @include padding(1rem, 2rem, 1rem, 2rem);
+
+    @include flex-container(row, center, center, nowrap);
+
+    @include respond(products_max_width) {
+      @include padding(0.8rem, 2.4rem, 0.8rem, 2.4rem);
+    }
+  }
+
+  &__image {
+    width: 84vw;
+    max-width: 36.8rem;
+  }
+
+  &__old-price {
+    text-decoration: line-through;
+  }
+
+  &__price {
+    border-top: 1px solid $color-gray-3;
+
+    @include margin(1.6rem, unset, unset, unset);
+
+    @include padding(1.6rem, unset, unset, unset);
+
+    @include flex-container(row, space-between, baseline, wrap);
+  }
+
+  &__stars {
+    height: 3.2rem;
+
+    @include flex-container(row, center, center, nowrap, 0.4rem);
+
+    img {
+      display: block;
+    }
+  }
+}
+
+// TESTIMONIALS
+.testimonials {
+  background-color: $color-testimonials;
+  text-align: center;
+
+  @include padding(6.5rem, 1.6rem, 6.5rem, 1.6rem);
+
+  @include flex-container(row, space-between, center, nowrap);
+
+  @include respond(desktop) {
+    @include padding(0, 0, 0, 0);
+  }
+
+  &__consumer-image {
+    border-radius: 10rem;
+
+    @include margin(6.4rem, unset, unset, unset);
+  }
+
+  &__side-images {
+    display: none;
+
+    @include respond(desktop) {
+      display: unset;
+    }
+  }
+
+  &__text {
+    width: 92vw;
+    max-width: 89.6rem;
+    @include margin(unset, auto, unset, auto);
+  }
+
+  &__stars {
+    @include margin(unset, unset, 3.2rem, unset);
+
+    @include flex-container(row, center, center, nowrap, 0.8rem);
+  }
+
+  &__name {
+    @include margin(2.6rem, unset, unset, unset);
+
+    @include respond(desktop) {
+      font-size: 2.4rem;
+    }
+  }
+
+  &__consumer {
+    @include margin(0.8rem, unset, unset, unset);
+
+    @include font-settings(
+      $color-gray-5,
+      1.4rem,
+      400,
+      1.6rem,
+      0.36px,
+      $font-primary
+    );
+  }
+}
+
+// OFFER PRODUCTS
+.offer-products {
+  background-color: $color-body;
+
+  @include padding(6.4rem, 1.6rem, 6.4rem, 1.6rem);
+
+  @include respond(desktop) {
+    @include padding(8rem, 4rem, 8rem, 4rem);
+  }
+
+  &__heading {
+    @include margin(unset, unset, 4.8rem, unset);
+
+    @include respond(bigger_than_phone) {
+      width: 100%;
+
+      @include flex-container(row, space-between, end, nowrap);
+    }
+  }
+
+  &__text {
+    width: 36.8rem;
+
+    @include flex-container(column, space-between, start, nowrap);
+
+    @include respond(bigger_than_phone) {
+      width: unset;
+    }
+
+    h2 {
+      @include margin(1.6rem, unset, 2.4rem, unset);
+
+      @include respond(bigger_than_phone) {
+        @include margin(0, 0, 0, 0);
+      }
+    }
+  }
+
+  &__container {
+    @include margin(unset, auto, unset, auto);
+
+    @include grid-container(repeat(auto-fit, 92vw), center, center, 3.2rem);
+
+    @include respond(products_max_width) {
+      @include grid-container(
+        repeat(auto-fit, 43.2rem),
+        center,
+        center,
+        3.2rem
+      );
+    }
+  }
+
+  button {
+    @include respond(desktop) {
+      @include width-and-height(26.9rem, 8rem);
+    }
+
+    span {
+      letter-spacing: 0.36px;
+    }
+  }
+}
+
+// ECO FRIENDLY
+.eco-friendly {
+  @include respond(desktop) {
+    height: 49.45vw;
+    overflow: hidden;
+
+    @include flex-container(row, start, center, nowrap);
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+
+    @include margin(unset, auto, unset, auto);
+
+    @include respond(desktop) {
+      @include margin(0, 0, 0, 0);
+
+      @include width-and-height(56vw, 56vw);
+    }
+  }
+
+  &__container {
+    width: 92vw;
+    max-width: 71.2rem;
+    position: relative;
+    border-radius: 3.2rem;
+    background-color: $color-white;
+    box-shadow: 0.3rem 0.5rem 2rem rgba(97, 96, 96, 0.3);
+
+    @include margin(-24.5vw, auto, unset, auto);
+
+    @include padding(3.2rem, 3.2rem, 3.2rem, 3.2rem);
+
+    @include respond(desktop) {
+      height: 60rem;
+
+      @include margin(0, 0, 0, 0);
+
+      @include padding(3.6rem, 0, 6.8rem, 4.8rem);
+    }
+  }
+
+  &__heading {
+    @include margin(unset, unset, 3.2rem, unset);
+
+    @include respond(desktop) {
+      @include margin(unset, unset, 5.6rem, unset);
+    }
+  }
+
+  &__content {
+    @include flex-container(column, space-between, start, nowrap, 2.4rem);
+
+    @include respond(desktop) {
+      gap: 1.6rem;
+    }
+  }
+
+  &--desktop-right-side {
+    @include respond(desktop) {
+      translate: -13.2rem;
+
+      @include flex-container(row, start, center, nowrap);
+    }
+  }
+
+  p {
+    @include respond(desktop) {
+      width: 60.1rem;
+    }
+  }
+}
+
+// LIST CARD
+.list-cards {
+  background-color: $color-gray-1;
+
+  @include padding(6.4rem, 1.7rem, 6.4rem, 1.7rem);
+
+  @include grid-container(repeat(auto-fit, 92vw), center, center, 2.4rem);
+
+  @include respond(products_max_width) {
+    @include grid-container(repeat(auto-fit, 43.2rem), center, center, 2.4rem);
+  }
+
+  @include respond(desktop) {
+    @include padding(8rem, 4rem, 8rem, 4rem);
+  }
+
+  &__item {
+    height: 126vw;
+    max-width: 43.2rem;
+    max-height: 58.4rem;
+    border-radius: 3.2rem;
+
+    @include padding(unset, unset, 5.6rem, unset);
+
+    @include flex-container(column, end, center, nowrap);
+
+    &--bg-juice {
+      @include list-cards("./images/List-card-1.png");
+    }
+
+    &--bg-food {
+      @include list-cards("./images/List-card-2.png");
+    }
+
+    &--bg-cookies {
+      @include list-cards("./images/List-card-3.png");
+    }
+  }
+}
+
+// NEWS SECTION
+.news {
+  @include padding(6.4rem, 1.6rem, 6.4rem, 1.6rem);
+
+  @include respond(desktop) {
+    @include padding(9.6rem, 4rem, 8rem, 4rem);
+  }
+
+  &__heading {
+    @include margin(unset, unset, 3.2rem, unset);
+
+    @include flex-container(row, space-between, end, wrap, 2.4rem);
+
+    @include respond(desktop) {
+      @include margin(unset, unset, 6rem, unset);
+    }
+
+    button {
+      @include respond(desktop) {
+        font-size: 2rem;
+
+        @include width-and-height(21.2rem, 8rem);
+      }
+    }
+  }
+
+  &__cards {
+    @include margin(unset, auto, 6.4rem, auto);
+
+    @include flex-container(row, center, center, wrap, 3.2rem);
+
+    @include respond(desktop) {
+      @include margin(unset, auto, 9.6rem, auto);
+
+      @include flex-container(row, center, center, wrap, 3.1rem);
+    }
+  }
+
+  &__item {
+    max-height: 51.5rem;
+    max-width: 66.5rem;
+
+    @include margin(unset, auto, 0, auto);
+
+    @include padding(3.1rem, unset, unset, unset);
+
+    &--bg-lettuce {
+      @include news-cards("./images/News-1-small.png");
+
+      @include respond(bigger_than_phone) {
+        @include news-cards("./images/News-1-big.png");
+      }
+    }
+
+    &--bg-tomato {
+      @include news-cards("./images/News-2-small.png");
+
+      @include respond(bigger_than_phone) {
+        @include news-cards("./images/News-2-big.png");
+      }
+    }
+  }
+
+  &__date {
+    background-color: $color-white;
+    display: inline-block;
+    border-radius: 50%;
+
+    @include margin(unset, unset, unset, 2.9rem);
+
+    @include width-and-height(8rem, 8rem);
+
+    @include flex-container(column, center, center, nowrap);
+  }
+
+  &__day {
+    @include font-settings(
+      $color-body,
+      3rem,
+      700,
+      3.2rem,
+      0.3px,
+      $font-primary
+    );
+  }
+
+  &__month {
+    @include font-settings(
+      $color-body,
+      1.4rem,
+      400,
+      1.6rem,
+      0.36px,
+      $font-primary
+    );
+  }
+
+  &__container {
+    background-color: $color-white;
+    border-radius: 3.2rem;
+    box-shadow: 16px 24px 52px -8px rgba(0, 0, 0, 0.15);
+    min-height: 32.8rem;
+    max-width: 61.7rem;
+
+    @include margin(-8.4rem, 1.9rem, 0, 1.6rem);
+
+    @include padding(2.4rem, 1.6rem, 2.4rem, 1.6rem);
+
+    @include respond(desktop) {
+      @include margin(-26.3rem, 1.9rem, 0, 1.6rem);
+
+      @include padding(4.8rem, 4.8rem, 5.6rem, 4.8rem);
+    }
+
+    @include flex-container(column, space-between, start, nowrap);
+  }
+
+  &__icon {
+    @include margin(unset, 0.2rem, unset, 0.2rem);
+  }
+
+  &__name {
+    @include flex-container(row, start, center, nowrap);
+
+    @include font-settings(
+      $color-body,
+      1.8rem,
+      400,
+      3.2rem,
+      0.36px,
+      $font-primary
+    );
+
+    & span {
+      @include margin(unset, unset, unset, 0.8rem);
+    }
+  }
+
+  &__button {
+    height: 3.2rem;
+
+    @include padding(0, 0, 0, 0);
+
+    @include margin(2rem, unset, unset, unset);
+
+    @include respond(desktop) {
+      @include width-and-height(16.4rem, 3.2rem);
+    }
+  }
+
+  &__subscription {
+    max-width: 136rem;
+
+    @include margin(unset, auto, unset, auto);
+
+    @include padding(3.2rem, 3.2rem, 3.2rem, 3.2rem);
+
+    @include width-and-height(92vw, 35.2rem);
+
+    @include flex-container(row, space-between, center, wrap, 2rem);
+
+    @include news-cards("./images/News-3a.png");
+
+    @include respond(bigger_than_phone) {
+      max-height: 32rem;
+      width: 100%;
+
+      @include padding(2rem, 2rem, 2rem, 2rem);
+
+      @include news-cards("./images/News-3.png");
+    }
+
+    @include respond(desktop) {
+      @include padding(6.4rem, 6.4rem, 6.4rem, 6.4rem);
+    }
+
+    h2 {
+      max-width: 40rem;
+    }
+  }
+
+  &__form {
+    @include flex-container(row, space-between, center, wrap, 1.6rem);
+
+    @include respond(desktop) {
+      gap: 2.4rem;
+    }
+
+    button {
+      @include respond(desktop) {
+        @include width-and-height(19.9rem, 8rem);
+      }
+    }
+  }
+
+  &__email {
+    min-width: 30.4rem;
+    height: 8rem;
+    border: none;
+    border-radius: 1.6rem;
+    text-align: center;
+
+    @include font-settings(
+      $color-gray-5,
+      1.8rem,
+      400,
+      3.2rem,
+      0.36px,
+      $font-primary
+    );
+
+    @include respond(desktop) {
+      width: 40.7rem;
+      text-align: left;
+
+      @include padding(unset, unset, unset, 4.8rem);
+    }
+  }
+}
+
+// FOOTER
+.footer {
+  text-align: center;
+
+  @include respond(desktop) {
+    @include padding(1.6rem, unset, unset, unset);
+  }
+
+  &--grid {
+    @include grid-container(
+      repeat(auto-fit, 34.8rem),
+      space-between,
+      start,
+      6.4rem
+    );
+  }
+
+  &--padding {
+    @include padding(0, 1.6rem, 0, 1.6rem);
+  }
+
+  &__center {
+    width: 92vw;
+
+    @include margin(unset, auto, unset, auto);
+
+    @include respond(footer-two-columns) {
+      grid-column: span 2;
+    }
+
+    @include respond(footer-three-columns) {
+      grid-column: span 3;
+    }
+
+    @include respond(desktop) {
+      @include margin(0, 0, 0, 0);
+      grid-column: 2 / 3;
+      justify-self: center;
+      align-self: start;
+      max-width: 56.7rem;
+
+      @include padding(3.2rem, unset, unset, unset);
+    }
+  }
+
+  &__paragraph {
+    @include margin(3.2rem, 0, 3.2rem, 0);
+
+    @include respond(desktop) {
+      @include margin(2.2rem, 0, 6.4rem, 0);
+    }
+  }
+
+  &__contact,
+  &__utility {
+    text-align: left;
+
+    @include respond(desktop) {
+      height: 38.4rem;
+      grid-row: 1;
+
+      @include padding(0, 3.2rem, 0, 3.2rem);
+    }
+
+    h3 {
+      @include respond(desktop) {
+        @include margin(unset, unset, 4.8rem, unset);
+      }
+    }
+  }
+
+  &__contact {
+    @include respond(footer-three-columns) {
+      text-align: right;
+    }
+
+    @include respond(desktop) {
+      border-right: 1px solid $color-gray-3;
+    }
+  }
+
+  &__utility {
+    @include respond(footer-three-columns) {
+      grid-column: 3 / 4;
+    }
+
+    @include respond(desktop) {
+      border-left: 1px solid $color-gray-3;
+    }
+  }
+
+  &__details {
+    @include margin(2.4rem, unset, unset, unset);
+
+    @include flex-container(column, space-between, start, nowrap, 1.6rem);
+
+    @include respond(desktop) {
+      &--gap-big {
+        gap: 3.2rem;
+      }
+
+      &--gap-medium {
+        gap: 2.4rem;
+      }
+    }
+
+    &--alignment-right {
+      @include respond(footer-three-columns) {
+        align-items: end;
+      }
+    }
+  }
+
+  &__copyright {
+    border-top: 1px solid $color-gray-3;
+
+    @include margin(4.8rem, unset, unset, unset);
+
+    @include width-and-height(100vw, 8rem);
+
+    @include respond(desktop) {
+      height: 6.4rem;
+    }
+
+    @include flex-container(row, center, center, nowrap);
+  }
+}

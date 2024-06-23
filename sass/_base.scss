@@ -1,0 +1,20 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+
+  @include margin(0, 0, 0, 0);
+  
+  @include padding(0, 0, 0, 0);
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
+}
+
+body {
+  background-color: #fff;
+
+  @include font-settings($color-gray-5, unset, 400, 3.2rem, unset, $font-primary);
+}

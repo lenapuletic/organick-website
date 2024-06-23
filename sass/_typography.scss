@@ -1,0 +1,161 @@
+h1 {
+  @include font-settings(
+    $color-body,
+    5.4rem,
+    700,
+    6.4rem,
+    0.36px,
+    $font-primary
+  );
+
+  @include respond(desktop) {
+    @include font-settings(
+      $color-body,
+      7rem,
+      700,
+      8.4rem,
+      0.36px,
+      $font-primary
+    );
+  }
+}
+
+.h2 {
+  &--big {
+    @include font-settings(
+      $color-body,
+      4rem,
+      700,
+      4.8rem,
+      0.36px,
+      $font-primary
+    );
+
+    @include respond(desktop) {
+      @include font-settings(
+        $color-body,
+        4.8rem,
+        700,
+        5.6rem,
+        0.36px,
+        $font-primary
+      );
+    }
+  }
+
+  &--small {
+    @include font-settings(
+      $color-body,
+      4rem,
+      400,
+      4.8rem,
+      0.36px,
+      $font-primary
+    );
+  }
+
+  &--white {
+    color: $color-white;
+  }
+}
+
+.h3 {
+  &--small {
+    @include font-settings(
+      $color-primary,
+      2.8rem,
+      400,
+      4.8rem,
+      0.36px,
+      $font-secondary
+    );
+
+    @include respond (desktop) {
+      @include font-settings(
+        $color-primary,
+        3.6rem,
+        400,
+        6.4rem,
+        0.36px,
+        $font-secondary
+      );
+    }
+  }
+
+  &--medium {
+    @include font-settings(
+      $color-body,
+      3rem,
+      700,
+      3.2rem,
+      0.36px,
+      $font-primary
+    );
+  }
+
+  &--big {
+    @include font-settings(
+      $color-primary,
+      3.6rem,
+      400,
+      6.4rem,
+      0.36px,
+      $font-secondary
+    );
+  }
+
+  &--white {
+    color: $color-white;
+  }
+}
+
+.h4 {
+  &--small {
+    @include font-settings(
+      $color-gray-5,
+      2rem,
+      700,
+      3.2rem,
+      0.36px,
+      $font-primary
+    );
+  }
+
+  &--big {
+    @include font-settings(
+      $color-body,
+      2.4rem,
+      700,
+      3.2rem,
+      0.36px,
+      $font-primary
+    );
+  }
+}
+
+h5 {
+  @include font-settings(
+    $color-body,
+    2.2rem,
+    400,
+    3.2rem,
+    0.36px,
+    $font-primary
+  );
+}
+
+h6 {
+  @include font-settings(
+    $color-white,
+    1.6rem,
+    700,
+    2.4rem,
+    0.36px,
+    $font-primary
+  );
+}
+
+p {
+  font-size: 1.8rem;
+  letter-spacing: 0.36px;
+}
